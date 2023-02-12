@@ -1,0 +1,86 @@
+Props: System to pass data from a parent to a child.
+State: System to track a piece of data that will change over time. If that data changes, our app will 'rerender'.
+
+creating a state variable
+
+import { useState } from 'react';
+
+const [counter, setCounter] = useState(0);
+
+whenever we use setCounter the complete component will rerender
+in which the setCounter is defined.
+
+counter is initialized only once. therefore, whenever it is rerender, the counter is not initialized again and hence it will have the value set in setCounter.
+
+We can track any kind of data this way.
+
+When a component is rerendered, all of its children get rerendered too.
+
+A state variable can be passed to a child component. At this point, the state variable is now being used as props.
+
+
+
+Generally, we create state variables in the most parent component that needs to read or change a state value.
+
+If a child needs to change a state value, the parent can pass down a callback function to change the state value as a prop.
+
+
+If we have some pieces of state that are extremely related and precise set of well known ways in which we update these values, we can use Reducer.
+
+Reducer - Function that get called with two objects.
+	#Arg1 - object has all of our state in it.
+	#Arg2 - object that describes the update we want to make.
+	We look at arg2 and use it to decide how to change arg1
+	#Note - we never change arg1 directly.
+			we must return value to be used as arg1
+
+
+Layout System in react
+	Box model
+		The height/width of an element + the space around it.
+		Use this to affect the position of a single element
+	
+	Flex box
+		home some number of sibling elements get laid out inside a parent.
+		Use this to position multiple element inside within a common parent
+		
+	Position
+		How a single element gets laid out inside of a parent
+		use this to override Box Object model + flex box
+	
+	BoxModel
+	
+	----------------------------------------
+	|                margin                |
+	|   --------------------------------   |
+	|   |            border            |   |
+	|   |   ------------------------   |   |
+	|   |   |       padding        |   |   |
+	|   |   |   ----------------   |   |   |
+	|   |   |   |              |   |   |   |
+	|   |   |   |    content   |   |   |   |
+	|   |   |   |              |   |   |   |
+	|   |   |   ----------------   |   |   |
+	|   |   |                      |   |   |
+	|   |   ------------------------   |   |
+	|   |                              |   |
+	|   --------------------------------   |
+	|                                      |
+	----------------------------------------
+	
+	Content and Padding section show background color. Border and margin do not.
+
+Icons in react native
+	import { Feather } from "@expo/vector-icons";
+	// expo/vector-icons has icons from many libraries like fontAwesome, materialUI etc
+	
+Axios
+	external library that allows to make api call. (fetch is inbuilt and is an alternative to it)
+	
+
+<></> use it as a container unlike needing to add a specific component like view. It helps put as much content as possible within the area available.
+
+
+import { withNavigation } from "react-navigation";
+export default withNavigation(ResultsList);
+//provides navigation capability to the component without having to supply navigation from parent component.
